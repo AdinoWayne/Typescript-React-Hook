@@ -1,15 +1,18 @@
 import {IEpisode, IState} from "../interfaces";
 import {fetchAPI, FilterArrayObject, ObjValueCounter} from "../utility/functions";
 import DataJson from "../api/data.json"
+import dataFootball from "../api/football.json"
+
 import {SelectObjectCreator} from "../utility/functions";
 import {ActionTypes} from "./ActionTypes";
 
 
 export async function fetchDataAction(dispatch: any) {
-    const dataJSON = await fetchAPI('https://api.tvmaze.com/singlesearch/shows?q=rick-&-morty&embed=episodes');
+    // const dataJSON = await fetchAPI('https://api.tvmaze.com/singlesearch/shows?q=rick-&-morty&embed=episodes');
+    const dataJSON = await dataFootball;
     return dispatch({
         type: ActionTypes.FETCH_DATA,
-        payload: dataJSON._embedded.episodes
+        payload: dataJSON.player
     });
 }
 

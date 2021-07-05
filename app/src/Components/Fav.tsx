@@ -1,5 +1,5 @@
 import React from 'react';
-import {IEpisode} from "../interfaces";
+import {IEpisode, IPlayer} from "../interfaces";
 import {Store} from "../Store/Store";
 import Card from "./Card";
 import Unfortunately from "./unfortunately";
@@ -17,9 +17,9 @@ export const Fav:React.FC = () => {
     return (
         <div className="row">
             {
-                state.favourites.map((episode: IEpisode, index: number) => {
+                state.favourites.map((player: IPlayer, index: number) => {
                     return (
-                        <Card {...episode} key={index}/>
+                        <Card {...player} key={index}/>
                     );
                 })
             }

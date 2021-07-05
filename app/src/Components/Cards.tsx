@@ -1,5 +1,5 @@
 import React from 'react';
-import {IEpisode} from "../interfaces";
+import {IEpisode, IPlayer} from "../interfaces";
 import {Store} from "../Store/Store";
 import Card from "./Card";
 
@@ -9,9 +9,9 @@ const Cards:React.FC = () => {
     return (
         <div className="row">
             {
-                state.filteredEpisodes.map((episode: IEpisode, index: number) => {
+                state.filteredEpisodes.map((player: IPlayer, index: number) => {
                     return (
-                        <Card {...episode} key={index}/>
+                        <Card {...player} key={index}/>
                     );
                 })
             }

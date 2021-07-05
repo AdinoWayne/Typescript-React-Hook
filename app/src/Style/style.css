@@ -4,12 +4,23 @@
   color: #c1c1c1; }
 
 html body {
-  background-image: url("src/background.svg");
+  background-image: url("src/background.jpg");
   height: 100%;
   width: 100%; }
 
 html body .main_header {
   color: #c1c1c1; }
+
+html body .footer {
+  background-image: url("src/generic-horizontal.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  display: block;
+  height: 180px;
+  left: 0;
+  position: absolute;
+  right: 0; }
 
 html body .special_card {
   background-color: transparent;
@@ -71,8 +82,7 @@ html body .special_card .card_body {
   text-align: center; }
 
 .myNavbar .main-header-image img {
-  height: 78px;
-  width: 261px;
+  height: 100px;
   cursor: pointer; }
 
 .myNavbar .nav-link {

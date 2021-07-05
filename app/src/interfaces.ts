@@ -46,3 +46,15 @@ export interface IPropsSelect {
     value?: string,
     handleChange?: any
 }
+
+export interface IPlayer {
+    age: number,
+    club: string,
+    id: number,
+    image: string,
+    name: string,
+    position: string,
+    squad_number: number,
+    stats: any,
+    team_id: number
+}

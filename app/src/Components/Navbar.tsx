@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import history from "../utility/history";
-import logo from "../Style/src/logo.svg"
+import logo from "../Style/src/logo.png"
 
 export const Navbar = (props: any):JSX.Element => {
     return (

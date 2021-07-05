@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar";
 import {Switch, Route, Redirect} from "react-router";
 import {Home} from "./Components/Home";
 import {Fav} from "./Components/Fav";
+import Footer from "./Components/Footer";
 import error from "./Components/error"
 
 export default function App(): JSX.Element {
@@ -17,6 +18,7 @@ export default function App(): JSX.Element {
                         <Redirect to="/404"/>
                     </Switch>
             </section>
+            <Footer/>
         </>
     );
 

@@ -5,12 +5,24 @@
 
 html {
   body {
-    background-image: url("src/background.svg");
+    background-image: url("src/background.jpg");
     height: 100%;
     width: 100%;
 
     .main_header {
       color: $white_text;
+    }
+
+    .footer {
+      background-image: url("src/generic-horizontal.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      content: "";
+      display: block;
+      height: 180px;
+      left: 0;
+      position: absolute;
+      right: 0;
     }
 
     .special_card {
