@@ -9,22 +9,25 @@ const Card: React.FC<IPlayer> = (props) => {
 
     const {id, name, club, position, image, squad_number } = props;
     return (
-        <div className="card special_card col-lg-4 col-md-6 col-sm-12" key={id}>
-            {image && <img src={(image) ? image : ""} alt={name}/>
-            }
-            <div className="card_header">{name}</div>
-            <div className="card_body">
-                club:{club} <br/>
-                position:{position} <br/>
-                squad_number:{squad_number} <br/>
-                <button
-                    className="btn btns"
-                    onClick={() => toggleAction(state, dispatch, props)}
-                >
-                    {
-                        state.favourites.find((fav: IEpisode) => fav.id === id) ? 'UnFav' : 'Fav'
-                    }
-                </button>
+        <div className="col-lg-4 col-md-6 col-sm-12 pb-4" key={id}>
+            <div className="card special_card">
+                <div className="card_image">
+                    {image && <img src={(image) ? image : ""} alt={name}/>}
+                </div>
+                <div className="card_header">{name}</div>
+                <div className="card_body">
+                    Club:{club} <br/>
+                    Position:{position} <br/>
+                    Squad Number:{squad_number} <br/>
+                    <button
+                        className="btn btns"
+                        onClick={() => toggleAction(state, dispatch, props)}
+                    >
+                        {
+                            state.favourites.find((fav: IEpisode) => fav.id === id) ? 'UnFollow' : 'Follow'
+                        }
+                    </button>
+                </div>
             </div>
         </div>
     );

@@ -23,18 +23,31 @@ html body .footer {
   right: 0; }
 
 html body .special_card {
-  background-color: transparent;
+  background-color: #fff;
   border: 1px solid #c1c1c1;
   position: relative; }
 
 html body .special_card .card_header {
-  color: #c1c1c1;
+  color: #222;
   font-weight: 600;
   font-size: 20px; }
 
 html body .special_card .card_body {
-  color: #c1c1c1;
+  color: #222;
   font-size: 18px; }
+
+html body .special_card .card_image {
+  display: flex; }
+
+html body .special_card .card_image > img {
+  margin: auto;
+  /* Magic! */
+  max-width: 100%;
+  max-height: 100%;
+  width: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 250px; }
 
 .btns {
   background-color: #441222;
