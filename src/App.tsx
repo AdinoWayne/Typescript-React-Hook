@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./Components/Navbar";
+import {Switch, Route, Redirect} from "react-router";
+import {Home} from "./Components/Home";
+import {Fav} from "./Components/Fav";
+import Footer from "./Components/Footer";
+import error from "./Components/error"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App(): JSX.Element {
+    return (
+        <>
+            <section className="container">
+                <Navbar/>
+                    <Switch>
+                        <Route path="/Favourites" component={Fav}/>
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/404" component={error}/>
+                        <Redirect to="/404"/>
+                    </Switch>
+            </section>
+            <Footer/>
+        </>
+    );
+
 }
 
-export default App;
+
+

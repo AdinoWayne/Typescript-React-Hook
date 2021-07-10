@@ -1,0 +1,30 @@
+.myNavbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  .main-header {
+    text-align: center;
+  }
+
+  .main-header-image {
+    img {
+      height: 100px;
+      cursor: pointer;
+    }
+  }
+
+  .nav-link {
+    color: $white_text;
+    font-size: 23px;
+    font-weight: 600;
+    outline: none;
+
+    &:hover, &:active {
+      color: $text_hover;
+    }
+  }
+
+}
