@@ -13,7 +13,7 @@ export const Navbar = (props: any):JSX.Element => {
                     onClick={()=>history.push("/")}
                 />
             </div>
-            <NavLink className="nav-link" to="/Favourites">FAV</NavLink>
+            <NavLink className="nav-link" to="/Favorites">Favorites</NavLink>
         </div>
     );
 };

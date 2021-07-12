@@ -1,13 +1,15 @@
 import React from 'react';
 import {IEpisode, IPlayer} from "../interfaces";
-import {Store} from "../Store/Store";
-import {toggleAction} from "../Store/Actions";
+import Store from "../Store/Store";
 
 const Card: React.FC<IPlayer> = (props) => {
 
-    const {state, dispatch} = React.useContext(Store);
+    const { actionExample } = Store;
+
+    const state = { favourites: []};
 
     const {id, name, club, position, image, squad_number } = props;
+
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 pb-4" key={id}>
             <div className="card special_card">
@@ -21,7 +23,7 @@ const Card: React.FC<IPlayer> = (props) => {
                     Squad Number:{squad_number} <br/>
                     <button
                         className="btn btns"
-                        onClick={() => toggleAction(state, dispatch, props)}
+                        onClick={() => actionExample()}
                     >
                         {
                             state.favourites.find((fav: IEpisode) => fav.id === id) ? 'UnFollow' : 'Follow'
