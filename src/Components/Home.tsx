@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import Store from "../Store/Store";
-import AdvanceFilters from "./AdvanceFilters";
 import {useFetch} from "../hooks/FetchingHook";
 
 
@@ -14,7 +13,6 @@ export const Home:React.FC = () => {
     return (
         <>
             <React.Suspense fallback={<div>...Loading</div>}>
-                <AdvanceFilters/>
                 <CardsList/>
             </React.Suspense>
         </>
