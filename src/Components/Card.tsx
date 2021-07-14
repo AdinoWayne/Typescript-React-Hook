@@ -1,14 +1,13 @@
 import React from 'react';
-import {IEpisode, IPlayer} from "../interfaces";
+import { IPlayer } from "../interfaces";
+import PlayerModel from '../Store/PlayerModel';
 import Store from "../Store/Store";
 
 const Card: React.FC<IPlayer> = (props) => {
 
-    const { actionExample } = Store;
+    const { pushToFavorite, favorites } = Store;
 
-    const state = { favourites: []};
-
-    const {id, name, club, position, image, squad_number } = props;
+    const {id, name, club, position, image, squad_number, age, team_id, stats } = props;
 
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 pb-4" key={id}>
@@ -23,10 +22,20 @@ const Card: React.FC<IPlayer> = (props) => {
                     Squad Number:{squad_number} <br/>
                     <button
                         className="btn btns"
-                        onClick={() => actionExample()}
+                        onClick={() => pushToFavorite(new PlayerModel({
+                            id,
+                            age,
+                            stats,
+                            team_id,
+                            name,
+                            club,
+                            position,
+                            image,
+                            squad_number
+                        }))}
                     >
                         {
-                            state.favourites.find((fav: IEpisode) => fav.id === id) ? 'UnFollow' : 'Follow'
+                            favorites.find((fav: IPlayer) => fav.id === id) ? 'UnFollow' : 'Follow'
                         }
                     </button>
                 </div>

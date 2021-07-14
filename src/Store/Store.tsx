@@ -4,7 +4,7 @@ import PlayerModel from "./PlayerModel";
 import { IPlayer } from "../interfaces";
 import { fetchDataAction } from ".//Actions";
 
-configure({enforceActions: true}) // strict mode
+configure({enforceActions: 'observed'}) // strict mode
 
 class PlayerStore {
     @observable count: number = 0;
@@ -12,9 +12,17 @@ class PlayerStore {
     @observable.ref
     players: PlayerModel[] = []
 
+    @observable.ref
+    favorites: PlayerModel[] = []
+
     @action
     updateCount = (count: number) => {
         this.count = count;
+    }
+
+    @action
+    pushToFavorite = (element: PlayerModel) => {
+        this.favorites.push(element);
     }
 
     @action
@@ -28,6 +36,7 @@ class PlayerStore {
         fetchDataAction().then(res => {
             const data: PlayerModel[] = res.map((e: IPlayer) => new PlayerModel(e))
             runInAction(() => {
+                this.updateCount(data.length);
                 this.players = data;
             })
         })

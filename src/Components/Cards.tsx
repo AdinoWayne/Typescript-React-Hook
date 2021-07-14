@@ -1,5 +1,5 @@
 import React from 'react';
-import {IEpisode, IPlayer} from "../interfaces";
+import { IPlayer } from "../interfaces";
 import Store from "../Store/Store";
 import Card from "./Card";
 
