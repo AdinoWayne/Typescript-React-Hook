@@ -2,7 +2,8 @@ import axios from "axios";
 import { action, observable, runInAction, configure } from "mobx";
 import PlayerModel from "./PlayerModel";
 import { IPlayer } from "../interfaces";
-import { fetchDataAction } from ".//Actions";
+import { fetchDataAction } from "./Actions";
+import { FilterArrayObject, removeByKey } from "../utility/functions";
 
 configure({enforceActions: 'observed'}) // strict mode
 
@@ -12,7 +13,7 @@ class PlayerStore {
     @observable.ref
     players: PlayerModel[] = []
 
-    @observable.ref
+    @observable
     favorites: PlayerModel[] = []
 
     @action
@@ -22,7 +23,18 @@ class PlayerStore {
 
     @action
     pushToFavorite = (element: PlayerModel) => {
-        this.favorites.push(element);
+        const hasFavorites = FilterArrayObject(this.favorites, 'id', element.id);
+        if (hasFavorites.length > 0) {
+            runInAction(() => {
+                element.handleFavorites(false);
+                this.favorites = removeByKey(this.favorites, element);
+            })
+            return;
+        }
+        runInAction(() => {
+            element.handleFavorites(true);
+            this.favorites.push(element);
+        })
     }
 
     @action

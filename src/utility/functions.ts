@@ -77,11 +77,18 @@ export function ArrayUntilNumber(num: number):Array<any> {
 
 export function FilterArrayObject(Arr: Array<any>, key: string, propertyValue: number | string | boolean) {
 
-   let sss =   Arr.filter((item: any) => {
+   let sss = Arr.filter((item: any) => {
         if (item[key] === propertyValue) {
             return true
         }
     });
-    console.log(sss,key,propertyValue);
     return sss;
+}
+
+export function removeByKey(array: Array<any>, params: any){
+    array.some(function(item, index) {
+      return (array[index][params.key] === params.value) ? !!(array.splice(index, 1)) : false;
+    });
+
+    return array;
 }

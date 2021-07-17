@@ -40,5 +40,6 @@ export interface IPlayer {
     position: string,
     squad_number: number,
     stats: any,
-    team_id: number
+    team_id: number,
+    hasFavorites?: boolean
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { IPlayer } from "../interfaces";
 import PlayerModel from '../Store/PlayerModel';
+import { observer } from 'mobx-react';
 import Store from "../Store/Store";
 
 const Card: React.FC<IPlayer> = (props) => {
@@ -17,31 +18,40 @@ const Card: React.FC<IPlayer> = (props) => {
                 </div>
                 <div className="card_header">{name}</div>
                 <div className="card_body">
-                    Club:{club} <br/>
-                    Position:{position} <br/>
-                    Squad Number:{squad_number} <br/>
-                    <button
-                        className="btn btns"
-                        onClick={() => pushToFavorite(new PlayerModel({
-                            id,
-                            age,
-                            stats,
-                            team_id,
-                            name,
-                            club,
-                            position,
-                            image,
-                            squad_number
-                        }))}
-                    >
-                        {
-                            favorites.find((fav: IPlayer) => fav.id === id) ? 'UnFollow' : 'Follow'
-                        }
-                    </button>
+                    <div className="card_body_detail">
+                        <div>
+                            Club: {club} <br/>
+                            Position: {position} <br/>
+                            Age: {age}
+                        </div>
+                        <div>
+                            <span className="card_number">{squad_number}</span>
+                        </div>
+                    </div>
+                    <div className="card_button">
+                        <button
+                            className="btn btns"
+                            onClick={() => pushToFavorite(new PlayerModel({
+                                id,
+                                age,
+                                stats,
+                                team_id,
+                                name,
+                                club,
+                                position,
+                                image,
+                                squad_number
+                            }))}
+                        >
+                            {
+                                favorites.find((fav: IPlayer) => fav.id === id) ? 'UnFollow' : 'Follow'
+                            }
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default React.memo(Card);
+export default observer(Card);

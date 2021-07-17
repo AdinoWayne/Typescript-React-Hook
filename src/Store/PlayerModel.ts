@@ -27,11 +27,12 @@ class PlayerModel {
     team_id: number = 0;
 
     @observable
-    completed: boolean = false;
+    hasFavorites: boolean = false;
 
     @action
-    toggleComplete = () => {
-        this.completed = !this.completed;
+    handleFavorites = (value: boolean) => {
+        this.hasFavorites = value;
+        this.name = this.name + "-"
     }
 }
 

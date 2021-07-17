@@ -2,6 +2,7 @@ import React from 'react';
 import { IPlayer } from "../interfaces";
 import Store from "../Store/Store";
 import Card from "./Card";
+import PlayerModel from "../Store/PlayerModel";
 
 const Cards:React.FC = () => {
     const {players} = Store;
@@ -9,7 +10,7 @@ const Cards:React.FC = () => {
     return (
         <div className="row">
             {
-                players.map((player: IPlayer, index: number) => {
+                players.map((player: PlayerModel, index: number) => {
                     return (
                         <Card {...player} key={index}/>
                     );

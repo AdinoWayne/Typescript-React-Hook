@@ -1,6 +1,6 @@
 * {
   font-family: 'Quicksand', sans-serif;
-  color: $white_text;
+  color: $black_text;
 }
 
 html {
@@ -8,6 +8,10 @@ html {
     background-image: url("src/background.jpg");
     height: 100%;
     width: 100%;
+
+    .container {
+      max-width: 960px;
+    }
 
     .main_header {
       color: $white_text;
@@ -34,12 +38,25 @@ html {
         &header {
           color: $black_text;
           font-weight: 600;
+          padding-left: 10px;
+          padding-right: 10px;
           font-size: 20px
         }
 
         &body {
           color: $black_text;
+          padding: 10px;
           font-size: 18px;
+
+          &_detail {
+            display: flex;
+            & > div:last-child {
+              flex-grow: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
         }
 
         &image {
@@ -53,6 +70,17 @@ html {
             overflow: hidden;
             height: 250px;
           }
+        }
+        &button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &number {
+          font-family: 'Bridge regular', 'Quicksand', sans-serif;
+          font-size: 60px;
+          color: $black_text;
         }
       }
 
