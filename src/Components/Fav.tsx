@@ -4,12 +4,15 @@ import Store from "../Store/Store";
 import Card from "./Card";
 import Unfortunately from "./unfortunately";
 import {arrayPic} from "../utility/Globals";
+import { observer } from 'mobx-react';
 
-export const Fav:React.FC = () => {
+const Fav:React.FC = () => {
     const { favorites } = Store;
     if (favorites.length === 0) {
         return (
-            <Unfortunately mainClass="Favourites" customStuff={{arrayPic}} title="No Fav has been used"/>
+            <div className="favor">
+                <Unfortunately mainClass="Favourites" customStuff={{arrayPic}} title="No Fav has been used"/>
+            </div>
         )
     }
     return (
@@ -24,3 +27,5 @@ export const Fav:React.FC = () => {
         </div>
     );
 };
+
+export default observer(Fav)

@@ -2,8 +2,8 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import Navbar from "./Components/Navbar";
 import {Switch, Route, Redirect} from "react-router";
-import {Home} from "./Components/Home";
-import {Fav} from "./Components/Fav";
+import Home from "./Components/Home";
+import Fav from "./Components/Fav";
 import Footer from "./Components/Footer";
 import error from "./Components/error"
 

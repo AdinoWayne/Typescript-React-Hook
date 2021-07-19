@@ -27,7 +27,7 @@ class PlayerStore {
         if (hasFavorites.length > 0) {
             runInAction(() => {
                 element.handleFavorites(false);
-                this.favorites = removeByKey(this.favorites, element);
+                this.favorites = this.favorites.filter((el: PlayerModel) => el.id !== element.id);
             })
             return;
         }
